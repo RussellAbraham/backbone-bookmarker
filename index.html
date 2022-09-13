@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://assets.codepen.io/1674766/stack.min.css'>
+</head>
+<body>
+    <header class="navbar border-dark border-bottom p-0">
+        <nav class="btn-group">
+            <a href="#" class="toggle-button btn btn-sm">
+                Bookmarks
+            </a>
+            <a href="#form" class="toggle-button btn btn-sm">Add</a>
+        </nav>
+        <nav class="btn-group">
+            <a class="btn btn-sm" href="javascript:(function(){var check = confirm('Save Backup File?'); if(check){app.Bookmarks.export();} })()">Export</a>
+        </nav>
+    </header>
+    
+    <main id="main" role="document">
+    
+        <article class="jumbotron">
+    
+            <section class="section form">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="siteName">Site Name</label>
+                        <input type="text" class="form-control form-control-sm" list="names" name="name" id="name" placeholder="Website Name" required>
+                        <datalist id="names">
+                            <option value="Codepen"></option>
+                            <option value="DuckDuckGo"></option>
+                            <option value="Facebook"></option>
+                            <option value="Google"></option>
+                            <option value="Google Bookmarks"></option>
+                            <option value="Google Drive Console"></option>
+                            <option value="Github"></option>
+                            <option value="Navigator"></option>
+                            <option value="YouTube"></option>
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="uri">Site URL</label>
+                        <input type="url" class="form-control form-control-sm" list="urls" name="uri" id="uri" placeholder="Website URL" required>
+                        <datalist id="urls">
+                            <option value="https://codepen.io/"></option>
+                            <option value="https://duckduckgo.com/"></option>
+                            <option value="https://facebook.com/"></option>
+                            <option value="https://www.google.ca/"></option>
+                            <option value="https://www.google.ca/bookmarks/"></option>
+                            <option value="https://softgateon.herokuapp.com/driveconsole/"></option>
+                            <option value="https://github.com/"></option>
+                            <option value="https://deployed.000455147.codepen.website/"></option>
+                            <option value="https://www.youtube.com/"></option>
+                        </datalist>
+                    </div>
+    
+                    <div class="form-group"></div>
+    
+                    <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+                </form>
+    
+            </section>
+    
+            <section class="section table">
+    
+                <table class="table table-sm bg-white table-bordered">
+                    <thead class="">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookmarks">
+    
+                    </tbody>
+                </table>
+            </section>
+        </article>
+    
+    </main>
+    
+    <footer class="navbar fixed-bottom navbar-dark bg-dark p-0">
+    
+    </footer>
+    
+    <!-- todo: action icons -->
+    
+    <div class="modal fade" id="modalConfirm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <section id="terminal"></section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-dark" id="" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/template" id="stats-template">
+        <nav class="btn-group">
+                <a data-toggle="modal" data-target="#modalConfirm" class="btn btn-sm text-muted">#</a>
+        </nav>	
+        <nav class="btn-group"><a class="btn btn-sm text-muted">Bookmarks : <span class="ind"><%= obj.length %></span></a></nav>
+    </script>
+
+    <script src="https://assets.codepen.io/1674766/stack.min.js"></script>
+    <script src="js/models/model.js"></script>
+    <script src="js/collections/collection.js"></script>
+    <script src="js/views/template.js"></script>
+    <script src="js/views/view.js"></script>
+    <script src="js/routes/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

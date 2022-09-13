@@ -1,0 +1,20 @@
+.ind {
+	color : var(--purple);
+}
+
+.section {
+	will-change : opacity;	
+	opacity : 1;
+}
+
+.section:before {
+	opacity : 1;
+}
+
+.section:after {
+	opacity : 0;
+}
+
+.view, .update, .destroy {
+	cursor : pointer;
+}
